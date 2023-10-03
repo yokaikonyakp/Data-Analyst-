@@ -1,0 +1,80 @@
+PROBLEM STATEMENT
+
+KPI's REQUIREMENT
+First , analyzing key indicatores for the pizza sales data to gain insights into business performance. Specifically , calculating the following metrics:
+
+1. Total Revenue : The sum of the total price of all the pixxa orders.
+2. Average Order Value: The average amount spent per order, calculateed by dividing the total revenue by the total number of the orders.
+3. Total Pizza Sold: The sum of the quantities of all pizzas sold.
+4. Total Orders: The number of orders places.
+5. Average Pizzas Per order: The average number of pizzas sold per order, calculated by dividing the total number of pizzas sold by the total number of orders.
+
+
+CHARTS REQUIREMENTS
+Visualizing various aspects of pizza sales data to gain insights and understand key trends. Identifying the folowing requirements for craeting charts:
+
+1. Daily Trends: 
+Create a bar charts that display the daily trend of total orders over a specific time period. This chart will help to identify any patterns or fluctuations in order volumes on a daily basis.
+
+2. Monthly Trends for Total Orders:
+Create a line chart that illustrate the hourly trend of total orders throughout the day. This chart will allow to identify peak hours or periods of high order activity.
+
+3. Percentage of sales by pizza category:
+Create a pie chart that shows the distribution of sales across different pizza categories. This chart will provide insights into the popularity of various pizza categories and their contribution to overall sales.
+
+4. Percentage of Sales by Pizza Size:
+Generate a pie chart that represents the percentage of sales attribute to different pizza sizes. This chart will help us understand custormer preferences for pizza sizes and their impact on sales. 
+
+5. Total Pizzas Sold by Pizza Category:
+Create a funnel charts that represents the total numbers of pizzas sold for each pizza category. This chart will aloow to compare the sale performance of different pizza categories.
+
+6. Top 5 Best Seller by Revenue, Total Quantity and Total Orders:
+Create a bar chart highlighting the top 5 best-selling pizzas based on the revenue, total quantity, total orders. This chart will help to idemtify the most popular pizza options.
+
+7. Bottom 5 best sellers by Revenue, total quantity and Total Orders:
+Create a bar chart showcasing the bottom 5 worst-selling pizzas based on the revenue, total quantity, total orders. This chart will enable us to identify underperforming or less poupular pizza options. 
+
+
+
+PIZZA SALES SQL QUERIES
+A. KPI's
+1. Total Revenue:
+SELECT SUM(total_price) as Total_Revenue from pizza_sales
+
+
+
+
+
+Building KPI's - DAX
+1. Total Revenue 
+Total Revenue = SUM(pizza_sales[total_price])
+
+4. Total Orders 
+Total Orders = DISTINCTCOUNT(pizza_sales[order_id])
+
+2. Average Order Value
+Avg Order Value = [Total Revenue] / [Total Orders]
+
+3. Total Pizza Sold 
+Total Pizza Sold = Sum(pizza_sales[quantity])
+
+5. Average Pizzas Per Order
+Avg Pizzas Per Order = [Total Pizza Sold]/ [Total Orders]
+
+CHARTS
+1. Daily Trend for Total Orders
+Adding new column(Day name) in power query and exracted only 3 letters from Day Name
+Order Day = UPPER(LEFT(pizza_sales[Day Name], 3))
+Sorting the trend in Day Number using "Conditional Column" and sorting in ascending order. 
+
+2. Monthly Orders
+Extracted "Month Name" from Order Date. And "Month"(number) 
+Adding new column(Month name) in power query and exracted only 3 letters from Month Name
+Order Month = UPPER(LEFT(pizza_sales[Month Name], 3))
+
+3. Percentage of Sales by Pizza Category
+4. Percentage of Sales by Pizza Size
+5. Total Pizza Sold by Pizza Category
+
+
+
